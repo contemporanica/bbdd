@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-02-2023 a las 13:43:00
+-- Tiempo de generación: 10-02-2023 a las 11:00:57
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `contemporanica`
 --
+CREATE DATABASE IF NOT EXISTS `contemporanica` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `contemporanica`;
 
 -- --------------------------------------------------------
 
@@ -32,6 +34,10 @@ CREATE TABLE `instrumento` (
   `nombre` varchar(50) NOT NULL,
   `familia` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELACIONES PARA LA TABLA `instrumento`:
+--
 
 -- --------------------------------------------------------
 
@@ -46,6 +52,10 @@ CREATE TABLE `pieza` (
   `datos` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- RELACIONES PARA LA TABLA `pieza`:
+--
+
 -- --------------------------------------------------------
 
 --
@@ -57,6 +67,10 @@ CREATE TABLE `pieza_instrumento` (
   `id_instrumento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- RELACIONES PARA LA TABLA `pieza_instrumento`:
+--
+
 -- --------------------------------------------------------
 
 --
@@ -66,13 +80,22 @@ CREATE TABLE `pieza_instrumento` (
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `nombre` varchar(25) NOT NULL,
-  `lista_favoritos` varchar(500) NOT NULL,
   `biografia` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- RELACIONES PARA LA TABLA `usuario`:
+--
+
+--
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `instrumento`
+--
+ALTER TABLE `instrumento`
+  ADD PRIMARY KEY (`id_instrumento`);
 
 --
 -- Indices de la tabla `pieza`
@@ -95,6 +118,12 @@ ALTER TABLE `usuario`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `instrumento`
+--
+ALTER TABLE `instrumento`
+  MODIFY `id_instrumento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `pieza`
