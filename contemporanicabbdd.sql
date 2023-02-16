@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-02-2023 a las 11:00:57
+-- Tiempo de generación: 16-02-2023 a las 13:01:22
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -20,8 +20,37 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `contemporanica`
 --
-CREATE DATABASE IF NOT EXISTS `contemporanica` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `contemporanica`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `compositor`
+--
+
+CREATE TABLE `compositor` (
+  `id_compositor` int(11) NOT NULL,
+  `nombre` varchar(25) NOT NULL,
+  `biografia` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELACIONES PARA LA TABLA `compositor`:
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `familia`
+--
+
+CREATE TABLE `familia` (
+  `id_familia` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELACIONES PARA LA TABLA `familia`:
+--
 
 -- --------------------------------------------------------
 
@@ -32,7 +61,7 @@ USE `contemporanica`;
 CREATE TABLE `instrumento` (
   `id_instrumento` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `familia` varchar(50) NOT NULL
+  `id_familia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -47,7 +76,7 @@ CREATE TABLE `instrumento` (
 
 CREATE TABLE `pieza` (
   `id_pieza` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
+  `id_compositor` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `datos` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -71,25 +100,21 @@ CREATE TABLE `pieza_instrumento` (
 -- RELACIONES PARA LA TABLA `pieza_instrumento`:
 --
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuario`
---
-
-CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL,
-  `nombre` varchar(25) NOT NULL,
-  `biografia` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELACIONES PARA LA TABLA `usuario`:
---
-
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `compositor`
+--
+ALTER TABLE `compositor`
+  ADD PRIMARY KEY (`id_compositor`);
+
+--
+-- Indices de la tabla `familia`
+--
+ALTER TABLE `familia`
+  ADD PRIMARY KEY (`id_familia`);
 
 --
 -- Indices de la tabla `instrumento`
@@ -107,17 +132,23 @@ ALTER TABLE `pieza`
 -- Indices de la tabla `pieza_instrumento`
 --
 ALTER TABLE `pieza_instrumento`
-  ADD PRIMARY KEY (`id_pieza`);
-
---
--- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id_usuario`);
+  ADD PRIMARY KEY (`id_pieza`,`id_instrumento`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `compositor`
+--
+ALTER TABLE `compositor`
+  MODIFY `id_compositor` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `familia`
+--
+ALTER TABLE `familia`
+  MODIFY `id_familia` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `instrumento`
@@ -130,12 +161,6 @@ ALTER TABLE `instrumento`
 --
 ALTER TABLE `pieza`
   MODIFY `id_pieza` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
