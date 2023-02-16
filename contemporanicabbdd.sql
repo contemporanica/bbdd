@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-02-2023 a las 13:01:22
+-- Tiempo de generación: 16-02-2023 a las 13:34:39
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -11,15 +11,11 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Base de datos: `contemporanica`
 --
+CREATE DATABASE IF NOT EXISTS `contemporanica` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `contemporanica`;
 
 -- --------------------------------------------------------
 
@@ -27,10 +23,12 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `compositor`
 --
 
-CREATE TABLE `compositor` (
-  `id_compositor` int(11) NOT NULL,
+DROP TABLE IF EXISTS `compositor`;
+CREATE TABLE IF NOT EXISTS `compositor` (
+  `id_compositor` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(25) NOT NULL,
-  `biografia` varchar(150) NOT NULL
+  `biografia` varchar(150) NOT NULL,
+  PRIMARY KEY (`id_compositor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -43,9 +41,11 @@ CREATE TABLE `compositor` (
 -- Estructura de tabla para la tabla `familia`
 --
 
-CREATE TABLE `familia` (
-  `id_familia` int(11) NOT NULL,
-  `nombre` varchar(30) NOT NULL
+DROP TABLE IF EXISTS `familia`;
+CREATE TABLE IF NOT EXISTS `familia` (
+  `id_familia` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_familia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -58,10 +58,12 @@ CREATE TABLE `familia` (
 -- Estructura de tabla para la tabla `instrumento`
 --
 
-CREATE TABLE `instrumento` (
-  `id_instrumento` int(11) NOT NULL,
+DROP TABLE IF EXISTS `instrumento`;
+CREATE TABLE IF NOT EXISTS `instrumento` (
+  `id_instrumento` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
-  `id_familia` int(11) NOT NULL
+  `id_familia` int(11) NOT NULL,
+  PRIMARY KEY (`id_instrumento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -74,11 +76,13 @@ CREATE TABLE `instrumento` (
 -- Estructura de tabla para la tabla `pieza`
 --
 
-CREATE TABLE `pieza` (
-  `id_pieza` int(11) NOT NULL,
+DROP TABLE IF EXISTS `pieza`;
+CREATE TABLE IF NOT EXISTS `pieza` (
+  `id_pieza` int(11) NOT NULL AUTO_INCREMENT,
   `id_compositor` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
-  `datos` varchar(100) NOT NULL
+  `datos` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_pieza`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -91,78 +95,14 @@ CREATE TABLE `pieza` (
 -- Estructura de tabla para la tabla `pieza_instrumento`
 --
 
-CREATE TABLE `pieza_instrumento` (
+DROP TABLE IF EXISTS `pieza_instrumento`;
+CREATE TABLE IF NOT EXISTS `pieza_instrumento` (
   `id_pieza` int(11) NOT NULL,
-  `id_instrumento` int(11) NOT NULL
+  `id_instrumento` int(11) NOT NULL,
+  PRIMARY KEY (`id_pieza`,`id_instrumento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- RELACIONES PARA LA TABLA `pieza_instrumento`:
 --
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `compositor`
---
-ALTER TABLE `compositor`
-  ADD PRIMARY KEY (`id_compositor`);
-
---
--- Indices de la tabla `familia`
---
-ALTER TABLE `familia`
-  ADD PRIMARY KEY (`id_familia`);
-
---
--- Indices de la tabla `instrumento`
---
-ALTER TABLE `instrumento`
-  ADD PRIMARY KEY (`id_instrumento`);
-
---
--- Indices de la tabla `pieza`
---
-ALTER TABLE `pieza`
-  ADD PRIMARY KEY (`id_pieza`);
-
---
--- Indices de la tabla `pieza_instrumento`
---
-ALTER TABLE `pieza_instrumento`
-  ADD PRIMARY KEY (`id_pieza`,`id_instrumento`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `compositor`
---
-ALTER TABLE `compositor`
-  MODIFY `id_compositor` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `familia`
---
-ALTER TABLE `familia`
-  MODIFY `id_familia` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `instrumento`
---
-ALTER TABLE `instrumento`
-  MODIFY `id_instrumento` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `pieza`
---
-ALTER TABLE `pieza`
-  MODIFY `id_pieza` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
