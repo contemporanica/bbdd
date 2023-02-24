@@ -93,6 +93,7 @@ CREATE TABLE IF NOT EXISTS `pieza` (
   PRIMARY KEY (`id_pieza`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
 --
 -- RELACIONES PARA LA TABLA `pieza`:
 --
