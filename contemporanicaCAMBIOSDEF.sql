@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-02-2023 a las 13:01:22
+-- Tiempo de generación: 24-02-2023 a las 10:59:54
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `contemporanica`
 --
+CREATE DATABASE IF NOT EXISTS `contemporanica` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `contemporanica`;
 
 -- --------------------------------------------------------
 
@@ -30,6 +32,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `compositor` (
   `id_compositor` int(11) NOT NULL,
   `nombre` varchar(25) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `password` varchar(150) NOT NULL,
   `biografia` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
