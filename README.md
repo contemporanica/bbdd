@@ -10,7 +10,13 @@ En un primer momento, incluimos la tabla registro que se relacionaba (N:1) con l
 
 # Creación de base de datos
 En la creación de la Base de Datos, hemos utilizado mysql con XAMPP para realizarlo, ya que lo hemos utilizado en otros proyectos que hemos utilizado bases de datos y nos parecía la forma más sencilla.
-En la creación de de la Base de Datos hemos incluido las diferentes tablas que hemos realizado en el diseño de tablas y sus respectivas columnas y foreign keys.
+Para crear la base de datos en MySQL debemos definir, al menos, cuatro elementos:
+
+* La base de datos por sí misma
+* Las tablas y sus campos
+* Las relaciones entre tablas
+* La inserción de datos dentro de las tablas
+En la creación de de la Base de Datos debemos acceder a la línea de comando MySQL, debemos accedea el comando para crear la base de datos y seleccionamos la base de datos, que en nuestro caso contemporanica, así que creamos las tablas y sus campos y generamos las relaciones entre tablas así que insertamos los datos necesarios ya incluidos en el diagrama de tablas y sus respectivas foreign keys.
 
 Hemos tenido algunas complicaciones para ponerlo en conjunto con la API, pero después de varios cambios ha salido adelante.
 
