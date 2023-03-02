@@ -11,3 +11,4 @@ En un primer momento, incluimos la tabla registro que se relacionaba (N:1) con l
 # Creación de base de datos
 En la creación de la Base de Datos, hemos utilizado mysql con XAMPP para realizarlo, ya que lo hemos utilizado en otros proyectos que hemos utilizado bases de datos y nos parecía la forma más sencilla.
 En la creación de de la Base de Datos hemos incluido las diferentes tablas que hemos realizado en el diseño de tablas y sus respectivas columnas y foreign keys.
+Hemos tenido algunas complicaciones para ponerlo en conjunto con la API, pero después de varios cambios ha salido adelante.
