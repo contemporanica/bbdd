@@ -16,7 +16,11 @@ Hemos tenido algunas complicaciones para ponerlo en conjunto con la API, pero de
 
 ---------------
 # Layout tables
-The table layout consists of the following tables: composer, piece, piece_instrument, instrument and family. Within composer we find: id_compositor (primary key), name, biography. In the piece table we find: id_piece (primary key), id_composer, name, data. In the piece_instrument table, which is an N:N, we find: id_piece, id_instrument. Inside the instrument table, we find: id_instrumento, name, id_familia. In the family table: family_id, name
+The table layout consists of the following tables: composer, piece, piece_instrument, instrument and family. Within composer we find: id_compositor (primary key), name, biography. 
+* In the piece table we find: id_piece (primary key), id_composer, name, data. 
+* In the piece_instrument table, which is an N:N, we find: id_piece, id_instrument. 
+* Inside the instrument table, we find: id_instrumento, name, id_familia. 
+* In the family table: family_id, name
 
 At first, we included the record table that was related (N:1) to the User table, but we deleted it since it was not necessary. It was suppressed and replaced by the composer table. Finally, we add the family table, with id_familia and name attributes.
 
