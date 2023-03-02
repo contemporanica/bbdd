@@ -15,5 +15,10 @@ En la creación de de la Base de Datos hemos incluido las diferentes tablas que 
 Hemos tenido algunas complicaciones para ponerlo en conjunto con la API, pero después de varios cambios ha salido adelante.
 
 ---------------
+# Layout tables
+The table layout consists of the following tables: composer, piece, piece_instrument, instrument and family. Within composer we find: id_compositor (primary key), name, biography. In the piece table we find: id_piece (primary key), id_composer, name, data. In the piece_instrument table, which is an N:N, we find: id_piece, id_instrument. Inside the instrument table, we find: id_instrumento, name, id_familia. In the family table: family_id, name
+
+At first, we included the record table that was related (N:1) to the User table, but we deleted it since it was not necessary. It was suppressed and replaced by the composer table. Finally, we add the family table, with id_familia and name attributes.
+
 # Database creation
 In the creation of the Database, we have used mysql with XAMPP to do it, since we have used it in other projects that have used databases and it seemed to us the easiest way. In the creation of the Database we have included the different tables that we have made in the design of tables and their respective columns and foreign keys. We've had some complications getting it together with the API, but after several changes it's worked out.
