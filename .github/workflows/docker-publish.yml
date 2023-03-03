@@ -3,7 +3,8 @@ name: ci
 on:
   pull_request:
     types: [closed]
-
+    branches:
+      - main
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -25,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: contemporanica/bbdd:latest , contemporanica/bbdd:${{github.event.pull_request.title}}
+          tags: contemporanica/bbdd:latest , contemporanica/bbdd:latest
