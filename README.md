@@ -1,45 +1,10 @@
 # Diseño de tablas
-El diseño de tablas consta de las siguientes tablas: compositor, pieza, pieza_instrumento, instrumento y familia.
-* Dentro de compositor encontramos: id_compositor (primary key), nombre, biografia.
-* En la tabla pieza encontramos: id_pieza (primary key), id_compositor, nombre, datos.
-* En la tabla pieza_instrumento, la cual es una N:N, encontramos: id_pieza, id_instrumento.
-* Dentro de la tabla instrumento, encontramos: id_instrumento, nombre, id_familia.
-* En la tabla familia: id_familia, nombre
+[Enlace a la documentación del diseño de tablas](docs/Disenotablas/disenotablas.md)
 
-En un primer momento, incluimos la tabla registro que se relacionaba (N:1) con la tabla Usuario, pero la suprimimos ya que no era necesaria. Fue suprimida y sustituida por la tabla compositor. Por último, añadimos la tabla familia, con atributos id_familia y nombre.
 
 # Creación de base de datos
-En la creación de la Base de Datos, hemos utilizado mysql con XAMPP para realizarlo, ya que lo hemos utilizado en otros proyectos que hemos utilizado bases de datos y nos parecía la forma más sencilla.
-Para crear la base de datos en MySQL debemos definir, al menos, cuatro elementos:
+[Enlace a la documentación del diseño de tablas](docs/Creaciontablas/creaciontablas.md)
 
-* La base de datos por sí misma
-* Las tablas y sus campos
-* Las relaciones entre tablas
-* La inserción de datos dentro de las tablas
 
-En la creación de de la Base de Datos debemos acceder a la línea de comando MySQL, debemos accedea el comando para crear la base de datos y seleccionamos la base de datos, que en nuestro caso contemporanica, así que creamos las tablas y sus campos y generamos las relaciones entre tablas así que insertamos los datos necesarios ya incluidos en el diagrama de tablas y sus respectivas foreign keys.
-
-Hemos tenido algunas complicaciones para ponerlo en conjunto con la API, pero después de varios cambios ha salido adelante.
-
----------------
-# Layout tables
-The table layout consists of the following tables: composer, piece, piece_instrument, instrument and family. Within composer we find: id_compositor (primary key), name, biography. 
-* In the piece table we find: id_piece (primary key), id_composer, name, data. 
-* In the piece_instrument table, which is an N:N, we find: id_piece, id_instrument. 
-* Inside the instrument table, we find: id_instrumento, name, id_familia. 
-* In the family table: family_id, name
-
-At first, we included the record table that was related (N:1) to the User table, but we deleted it since it was not necessary. It was suppressed and replaced by the composer table. Finally, we add the family table, with id_familia and name attributes.
-
-# Database creation
-In the creation of the Database, we have used mysql with XAMPP to do it, since we have used it in other projects that have used databases and it seemed to us the easiest way.
-To create the database in MySQL we must define at least four elements:
-
-* The database itself
-* Tables and their fields
-* Relationships between tables
-* Inserting data into tables
-
-In the creation of the Database we must access the MySQL command line, we must access the command to create the database and select the database, which in our contemporary case, so we create the tables and their fields and We generate the relationships between tables so we insert the necessary data already included in the table diagram and their respective foreign keys.
-
-We've had some complications getting it together with the API, but after several changes it's worked out.
+# Creación del Dockerfile
+[Enlace a la documentación del Dockerfile](docs/Dockerfile/dockerfile.md)
